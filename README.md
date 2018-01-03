@@ -31,13 +31,13 @@
 
 
         (3) 返回结果
-            1. 一行一个结果，对应测试数据，结果是float类型，对应着相应域名是DGA生成的概率
+            1. 一行一个结果，对应测试数据，结果是float类型，对应着相应域名是由DGA算法生成的概率
 
             eg:
-                [0.6172037720680237]
-                [0.9998446702957153]
-                [0.9998708963394165]
-                [0.5719057321548462]
+                0.6172037720680237
+                0.9998446702957153
+                0.9998708963394165
+                0.5719057321548462
 
 
 
@@ -49,11 +49,11 @@
             2. 格式：域名 类型
 
             eg:
-                beovglu.info 65
-                axdikdjkpnkwv8.com 78
-                aabvenhancedysb.com 67
-                fhymxxqkyndlpqp.co.uk 50
-                chinapyg.com 0
+                194ozgcrfyuyi1dl15gqeukjc6.org 16
+                rvitghrkweqrnur.biz 13
+                bqoxixuyr.mn 14
+                tfwafordlinnetavox.com 8
+                tumboor.com 0
 
 
 
@@ -82,36 +82,76 @@
 二、 程序使用
 
     (一) 二分类训练
-        命令行：python main.py 0 dataFilePath modelFilePath
+        命令行：python main.py 0 batch_size epochs dataFilePath modelFilePath
 
         参数说明：
+            batch_size 批处理大小
+            epochs  训练轮数
             dataFilePath : 训练数据文件路径
             modelFilePath : 训练好的模型文件保存路径，是个文件路径
 
+        举例：
+            python main.py 0 100 1 /home/audr/chc/data/Binary/11.22/train_11.22.txt /home/audr/chc/models/model_100_1_b.h5
+        说明：
+            1. 进行二分类训练，批处理大小为100，数据训练轮数为1
+            2. 训练数据文件路径：/home/audr/chc/data/Binary/11.22/train_11.22.txt
+            3. 训练模型保存路径： /home/audr/chc/models/model_100_1_b.h5
+
+
 
     (二) 二分类测试
-        命令行：python main.py 1 dataFilePath modelFilePath resultFilePath
+        命令行：python main.py 1 batch_size epochs dataFilePath modelFilePath resultFilePath
 
         参数说明：
+            batch_size 批处理大小
+            epochs  训练轮数，测试时这个参数其实没有用到，只是为了统一参数的格式
             dataFilePath : 测试数据文件路径
             modelFilePath : 加载模型路径
             resultFilePath : 判别结果保存路径，是个文件路径
 
+        举例：
+            python main.py 1 100 1 /home/audr/chc/data/Binary/11.22/test_11.22.txt /home/audr/chc/models/model_100_1_b.h5 /home/audr/chc/result/test_result_100_1_b.txt
+        说明：
+            1. 进行二分类测试，批处理大小为100
+            2. 测试数据文件路径：/home/audr/chc/data/Binary/11.22/test_11.22.txt
+            3. 测试模型路径： /home/audr/chc/models/model_100_1_b.h5
+            4. 判别结果文件路径：/home/audr/chc/result/test_result_100_1_b.txt
+
 
     (三) 多分类训练
-        命令行：python main.py 2 dataFilePath modelFilePath nb_classes
+        命令行：python main.py 2 batch_size epochs dataFilePath modelFilePath nb_classes
 
         参数说明：
+            batch_size 批处理大小
+            epochs  训练轮数
             dataFilePath : 训练数据文件路径
             modelFilePath : 训练好的模型文件保存路径，是个文件路径
             nb_classes : 训练数据中数据的类型个数，比如：正常域名 + 5种DGA feed生成的域名  nb_classes = 6
 
+        举例：
+            python main.py 2 100 1 /home/audr/chc/data/Multiclass/11.22/train_11.22_10000.txt /home/audr/chc/models/model_100_1_m.h5 20
+        说明：
+            1. 进行多分类训练，批处理大小为100，数据训练轮数为1
+            2. 训练数据文件路径：/home/audr/chc/data/Multiclass/11.22/train_11.22_10000.txt
+            3. 训练模型保存路径： /home/audr/chc/models/model_100_1_m.h5
+            4. 域名类别总个数nb_classes：20
 
     (四) 多分类测试
-        命令行：python main.py 3 dataFilePath modelFilePath resultFilePath
+        命令行：python main.py 3 batch_size epochs dataFilePath modelFilePath resultFilePath
 
         参数说明：
+            batch_size 批处理大小
+            epochs  训练轮数，测试时这个参数其实没有用到，只是为了统一参数的格式
             dataFilePath : 测试数据文件路径
             modelFilePath : 加载模型路径
             resultFilePath : 判别结果保存路径，是个文件路径
+
+        举例：
+            python main.py 3 100 1 /home/audr/chc/data/Multiclass/11.22/test_11.22_10000.txt /home/audr/chc/models/model_100_1_m.h5 /home/audr/chc/result/12.13/test_result_100_1_m.txt
+        说明：
+            1. 进行多分类测试，批处理大小为100
+            2. 测试数据文件路径：/home/audr/chc/data/Multiclass/11.22/test_11.22_10000.txt
+            3. 测试模型路径： /home/audr/chc/models/model_100_1_m.h5
+            4. 判别结果文件路径：/home/audr/chc/result/12.13/test_result_100_1_m.txt
+
 

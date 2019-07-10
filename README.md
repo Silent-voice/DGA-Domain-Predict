@@ -2,6 +2,15 @@
 使用LSTM模型检测DGA域名
 
 
+说明：这是本科的时候参考一个博客写的代码，后来专门研究了Attention相关的论文之后，发现我这就是个假的Attention，为了不误人子弟，特此说明。
+
+Attention和Transform的思想与原理可以见我的笔记：
+https://github.com/Silent-voice/ML_paper/blob/master/Node/%E5%BE%85%E5%AE%8C%E6%88%90/Attention_and_transformer.docx
+或者https://github.com/Silent-voice/ML_paper/blob/master/Node/Attention_and_transformer.docx
+
+
+
+
 一、 数据格式
 
     (一) 二分类

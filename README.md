@@ -2,8 +2,8 @@
 使用LSTM模型检测DGA域名
 
 
-说明：这是本科的时候参考一个博客写的代码，后来专门研究了Attention相关的论文之后，发现我这就是个假的Attention，为了不误人子弟，特此说明。
-
+说明：
+Attention一般是用于Encoder与Decoder之间的，我这个模型只有Encoder，所以Attention用法就比较简单。
 Attention和Transform的思想与原理可以见我的笔记：
 https://github.com/Silent-voice/ML_paper/blob/master/Node/Attention_and_transformer.docx
 

@@ -3,10 +3,10 @@
 
 
 说明：
-Attention一般是用于Encoder与Decoder之间的，我这个模型只有Encoder，所以Attention用法就比较简单。
+1. Attention一般是用于Encoder与Decoder之间的，我这个模型只有Encoder，所以Attention用法就比较简单。
 Attention和Transform的思想与原理可以见我的笔记：
 https://github.com/Silent-voice/ML_paper/blob/master/Node/Attention_and_transformer.docx
-
+2. 我试过将Attention改成Transformer中那种点积运算，效果会有提示
 
 
 
